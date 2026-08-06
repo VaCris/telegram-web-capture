@@ -175,6 +175,19 @@
 
    END OF TERMS AND CONDITIONS
 
+   ATTRIBUTION REQUIREMENT:
+
+   Any fork, derivative work, or redistribution of this software must
+   include prominent attribution to the original author:
+
+   "Original work by Bryan Alexander Vidal Crispin
+    (https://github.com/VaCris/telegram-web-capture)"
+
+   This attribution must be visible in:
+   - The project's README.md or similar documentation
+   - Any published distribution (npm, GitHub releases, etc.)
+   - The source code headers of modified files
+
    APPENDIX: How to apply the Apache License to your work.
 
       To apply the Apache License to your work, attach the following
@@ -186,7 +199,7 @@
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright [yyyy] [name of copyright owner]
+   Copyright 2026 Bryan Alexander Vidal Crispin
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
