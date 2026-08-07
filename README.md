@@ -4,10 +4,11 @@ Una extensión de Chrome para descargar videos, audios, imágenes y documentos d
 
 ## Características
 
-- Descarga individual de videos, audios, imágenes y documentos
-- Descarga por lotes (batch) de todos los recursos capturados
+- Muestra el botón de descarga nativo de Telegram Web en el visor multimedia
+- Funciona en videos, audios, imágenes y documentos del visor
+- También funciona dentro de Stories
 - Interfaz simple y limpia
-- Detecta automáticamente los recursos multimedia en Telegram Web
+- No requiere configuración adicional
 
 ## Instalación
 
@@ -21,9 +22,9 @@ Una extensión de Chrome para descargar videos, audios, imágenes y documentos d
 
 1. Ve a [Telegram Web](https://web.telegram.org)
 2. Navega por tus chats, canales o grupos
-3. Los recursos multimedia se capturarán automáticamente
-4. Haz clic en el ícono de la extensión para ver los recursos capturados
-5. Descarga individualmente o en lote
+3. Abre o reproduce el video/imagen/audio para que aparezca el visor multimedia
+4. La extensión mostrará automáticamente el ícono de descarga nativo de Telegram en el visor
+5. Usa ese ícono para descargar el archivo directamente
 
 ## Estructura del proyecto
 
@@ -48,12 +49,14 @@ telegram-web-capture/
 
 ## Notas
 
-- Esta extensión funciona únicamente en Telegram Web (web.telegram.org)
-- Los iconos PNG son placeholders - reemplázalos con iconos reales
+- Esta extensión funciona únicamente en Telegram Web (web.telegram.org, webk.telegram.org, webz.telegram.org)
+- La extensión solo muestra el botón de descarga nativo en el visor multimedia y en Stories
+- No captura ni almacena medios para descarga posterior
 - La extensión requiere permisos para acceder a web.telegram.org
 
 ## Solución de problemas
 
-- Si no aparecen recursos, verifica que estés en web.telegram.org
-- Recarga la página si la extensión no detecta nuevos recursos
+- Si no aparece el ícono de descarga, verifica que estés en web.telegram.org
+- Asegúrate de abrir el visor multimedia reproduciendo o haciendo clic en el archivo
+- Recarga la página si la extensión no detecta el visor
 - Revisa la consola del navegador para ver errores
