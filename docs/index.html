@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Telegram Media Downloader — a Chrome extension that unhides the native download button in Telegram Web's media viewer and Stories. No media capture, no local storage.">
+  <meta name="theme-color" content="#2AABEE">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Telegram Media Downloader">
+  <meta property="og:description" content="A Chrome extension that unhides the native download button in Telegram Web's media viewer and Stories.">
+  <meta property="og:image" content="https://vcris.github.io/telegram-web-capture/screenshots/screenshot-hero.png">
+  <meta property="og:url" content="https://vcris.github.io/telegram-web-capture/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <title>Telegram Media Downloader</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="../icons/icon48.png" type="image/png" sizes="48x48">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="../icons/icon48.png" alt="" width="32" height="32">
+        <span data-key="brand">TG Downloader</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" id="navLinks">
+          <a href="#features" data-key="nav.features">Features</a>
+          <a href="#demo" data-key="nav.demo">Demo</a>
+          <a href="#how-it-works" data-key="nav.how">How it works</a>
+          <a href="#install" data-key="nav.install">Install</a>
+          <a href="#download" data-key="nav.download">Download</a>
+          <a href="https://github.com/VaCris/telegram-web-capture" target="_blank" rel="noopener" class="nav-link-external" data-key="nav.source">Source</a>
+        </nav>
+        <div class="lang-switch">
+          <button class="lang-btn lang-en" data-lang="en" data-key="lang.en">EN</button>
+          <button class="lang-btn lang-es" data-lang="es" data-key="lang.es">ES</button>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 data-key="hero.title">Telegram Media Downloader</h1>
+        <p class="hero-subtitle" data-key="hero.subtitle">Unhide the native download button in Telegram Web's media viewer and Stories. Download videos, photos, audio and documents directly — no media capture, no local storage.</p>
+        <div class="hero-cta">
+          <a href="#download" class="btn btn-primary" data-key="hero.cta">Download v1.0.2</a>
+          <a href="https://github.com/VaCris/telegram-web-capture" target="_blank" rel="noopener" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.7-5 5.7-1 7.4l1-4c-2.1-1-3.5-2.8-4-5-.5-2.2 0-4.6 1-7 1.3-2.8 3.8-4.8 6.7-5.8 2-.8 4.1-.6 6 .4 2.2 1.2 3.8 3.3 4.3 5.7.7 3 .1 6.1-1.7 8.2-.6-.9-1.5-1.7-2.4-2.4l-.1-.1c-1.2 1-2.6 1.5-4 1.7z"></path></svg>
+            <span data-key="hero.github">GitHub</span>
+          </a>
+        </div>
+        <div class="hero-badge">
+          <img src="../icons/icon48.png" alt="" width="20" height="20">
+          Manifest V3 &nbsp;•&nbsp; Apache 2.0
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="screenshots/screenshot-hero.png" alt="Telegram Media Downloader in action" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title" data-key="features.title">Features</h2>
+      <p class="section-subtitle" data-key="features.subtitle">Simple in concept, solid in practice.</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><span class="icon">👁</span></div>
+          <h3 data-key="features.1.title">Unhide Native Download</h3>
+          <p data-key="features.1.desc">Telegram Web already has a download button — it just hides it. This extension removes the CSS <code>hide</code> class so the real button reappears.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><span class="icon">📚</span></div>
+          <h3 data-key="features.2.title">All Media Types</h3>
+          <p data-key="features.2.desc">Works with videos, photos, audio files and documents — any media you can open in the Telegram Web viewer.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><span class="icon">📱</span></div>
+          <h3 data-key="features.3.title">Stories Support</h3>
+          <p data-key="features.3.desc">The download button is also unhidden inside the Stories viewer, so you can save story media too.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><span class="icon">🔒</span></div>
+          <h3 data-key="features.4.title">Privacy First</h3>
+          <p data-key="features.4.desc">No media is intercepted, captured or stored locally. You download directly from Telegram's own CDN via their native button.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><span class="icon">⚡</span></div>
+          <h3 data-key="features.5.title">Lightweight</h3>
+          <p data-key="features.5.desc">A minimal content script runs every 500 ms. No heavy frameworks, no background noise.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><span class="icon">🛠</span></div>
+          <h3 data-key="features.6.title">Zero Setup</h3>
+          <p data-key="features.6.desc">Install and it just works. No options, no configuration, no permissions beyond web.telegram.org.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Demo ===== -->
+  <section id="demo" class="section alt">
+    <div class="container">
+      <h2 class="section-title" data-key="demo.title">See it in action</h2>
+      <p class="section-subtitle" data-key="demo.subtitle">Screenshots from the actual extension in use.</p>
+
+      <div class="screenshots">
+        <div class="screenshot">
+          <img src="screenshots/screenshot-media-viewer.png" alt="Media viewer with download button visible" loading="lazy">
+          <p class="caption" data-key="demo.1.caption">The native download button is now visible in the media viewer.</p>
+        </div>
+        <div class="screenshot">
+          <img src="screenshots/screenshot-stories.png" alt="Stories viewer with download button visible" loading="lazy">
+          <p class="caption" data-key="demo.2.caption">The same works inside Stories.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section id="how-it-works" class="section">
+    <div class="container">
+      <h2 class="section-title" data-key="how.title">How it works</h2>
+      <p class="section-subtitle" data-key="how.subtitle">Three simple steps — that's all it takes.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3 data-key="how.1.title">Install</h3>
+          <p data-key="how.1.desc">Load the extension in Chrome via <code>chrome://extensions/</code> as an unpacked extension.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3 data-key="how.2.title">Open Telegram</h3>
+          <p data-key="how.2.desc">Navigate to <a href="https://web.telegram.org" target="_blank" rel="noopener">web.telegram.org</a> and open any media in the viewer.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3 data-key="how.3.title">Download</h3>
+          <p data-key="how.3.desc">Click the now-visible native download button. Telegram handles the download via its CDN.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Install ===== -->
+  <section id="install" class="section alt">
+    <div class="container">
+      <h2 class="section-title" data-key="install.title">Installation</h2>
+      <div class="install-guide">
+        <div class="install-steps">
+          <div class="install-step">
+            <span class="step-num">1</span>
+            <div data-key="install.1">Download the latest release. Grab the ZIP from the <a href="#download">Download</a> section or the <a href="https://github.com/VaCris/telegram-web-capture/releases">GitHub releases</a> page.</div>
+          </div>
+          <div class="install-step">
+            <span class="step-num">2</span>
+            <div data-key="install.2">Extract the ZIP to a folder on your computer.</div>
+          </div>
+          <div class="install-step">
+            <span class="step-num">3</span>
+            <div data-key="install.3">Open Chrome, go to <code>chrome://extensions/</code>, enable <em>Developer mode</em>, click <em>Load unpacked</em> and select the extracted folder.</div>
+          </div>
+          <div class="install-step">
+            <span class="step-num">4</span>
+            <div data-key="install.4">Open <a href="https://web.telegram.org" target="_blank" rel="noopener">web.telegram.org</a>, open any media and the download button will appear.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Download ===== -->
+  <section id="download" class="section">
+    <div class="container">
+      <div class="download-box">
+        <div class="download-info">
+          <h2 data-key="download.title">v1.0.2 Release</h2>
+          <p class="download-subtitle" data-key="download.subtitle">Download the ready-to-load Chrome extension package (ZIP). Compatible with Chrome, Edge, Brave and Opera.</p>
+          <a href="https://github.com/VaCris/telegram-web-capture/releases/download/v1.0.2/telegram-web-capture-1.0.2.zip" class="btn btn-primary download-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-key="download.btn">Download extension ZIP</span>
+          </a>
+          <p class="download-small">28 KB • Manifest V3 • Apache 2.0</p>
+        </div>
+        <div class="download-meta">
+          <span class="badge-license">Apache-2.0</span>
+          <span class="badge-lang">JavaScript</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#" class="logo footer-logo">
+          <img src="../icons/icon48.png" alt="" width="32" height="32">
+          <span data-key="brand">TG Downloader</span>
+        </a>
+        <nav class="footer-nav">
+          <a href="#features" data-key="nav.features">Features</a>
+          <a href="#demo" data-key="nav.demo">Demo</a>
+          <a href="#how-it-works" data-key="nav.how">How it works</a>
+          <a href="https://github.com/VaCris/telegram-web-capture/releases" data-key="nav.releases">Releases</a>
+          <a href="https://github.com/VaCris/telegram-web-capture/blob/main/TESTING.md" data-key="nav.testing">Testing</a>
+          <a href="https://github.com/VaCris/telegram-web-capture/blob/main/CHANGELOG.md" data-key="nav.changelog">Changelog</a>
+          <a href="https://github.com/VaCris/telegram-web-capture/blob/main/LICENSE" data-key="nav.license">License</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p data-key="footer.attribution">Licensed under the <a href="https://github.com/VaCris/telegram-web-capture/blob/main/LICENSE">Apache License 2.0</a>, which requires prominent attribution to the original author.</p>
+        <p data-key="footer.credit">Original work by <a href="https://github.com/VaCris">Bryan Alexander Vidal Crispin</a> · <a href="https://github.com/VaCris/telegram-web-capture">github.com/VaCris/telegram-web-capture</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
