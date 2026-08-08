@@ -67,11 +67,28 @@ Las capturas de pantalla paso a paso se muestran en la sección de [Uso](#uso).
 
 ## Uso
 
+### Visor multimedia
+
 1. Abre [Telegram Web](https://web.telegram.org) e inicia sesión.
 2. Navega a un chat, canal o grupo.
-3. **Visualizar el video** — abre o reproduce un video, imagen, audio o documento para que aparezca el visor multimedia.
-4. **Saldrán los botones** — la extensión hará visible el botón de descarga nativo de Telegram (icono de 💾) en la barra del visor.
-5. **Comienza a descargar** — haz clic en el botón de descarga y el archivo se descargará directamente a tu carpeta de descargas.
+
+**Visualizar el video**
+
+3. Abre o reproduce un video, imagen, audio o documento para que aparezca el visor multimedia.
+
+![Paso 1 — Visualizar el video](docs/screenshots/screenshot-step-1-view.png)
+
+**Saldrán los botones**
+
+4. La extensión hará visible el botón de descarga nativo de Telegram (icono de 💾) en la barra del visor.
+
+![Paso 2 — Botón de descarga visible](docs/screenshots/screenshot-step-2-button.png)
+
+**Comienza a descargar**
+
+5. Haz clic en el botón de descarga y el archivo se descargará directamente a tu carpeta de descargas.
+
+![Paso 3 — Descarga iniciada](docs/screenshots/screenshot-step-3-download.png)
 
 ### En las Stories
 
