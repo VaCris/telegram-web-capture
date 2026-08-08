@@ -128,23 +128,31 @@
       <h2 class="section-title reveal" data-key="demo.title">See it in action</h2>
       <p class="section-subtitle reveal" data-key="demo.subtitle">Screenshots from the actual extension in use.</p>
 
-      <div class="step-flow">
-        <div class="step-item reveal">
-          <div class="step-badge" data-step="1">1</div>
-          <div class="step-arrow"><span>→</span></div>
-          <img src="screenshots/screenshot-step-1-view.png" alt="Step 1: View media in Telegram Web" loading="lazy">
-          <p class="step-caption" data-key="demo.1.caption">Open any media to launch the Telegram Web viewer.</p>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item reveal" data-step="1">
+          <div class="timeline-content">
+            <h3 data-key="how.1.title">Install</h3>
+            <p data-key="how.1.desc">Load the extension in Chrome via <code>chrome://extensions/</code> as an unpacked extension, or grab the ZIP from the release below.</p>
+            <img src="screenshots/screenshot-step-1-view.png" alt="Telegram Web media viewer" loading="lazy">
+          </div>
         </div>
-        <div class="step-item reveal">
-          <div class="step-badge" data-step="2">2</div>
-          <div class="step-arrow"><span>→</span></div>
-          <img src="screenshots/screenshot-step-2-button.png" alt="Step 2: Download button now visible" loading="lazy">
-          <p class="step-caption" data-key="demo.2.caption">The native download button is now visible.</p>
+
+        <div class="timeline-item reveal" data-step="2">
+          <div class="timeline-content">
+            <h3 data-key="how.2.title">Open Telegram</h3>
+            <p data-key="how.2.desc">Navigate to web.telegram.org, open any media — the viewer opens automatically.</p>
+            <img src="screenshots/screenshot-step-2-button.png" alt="Download button visible" loading="lazy">
+          </div>
         </div>
-        <div class="step-item reveal">
-          <div class="step-badge" data-step="3">3</div>
-          <img src="screenshots/screenshot-step-3-download.png" alt="Step 3: Downloading starts" loading="lazy">
-          <p class="step-caption" data-key="demo.3.caption">Click to download — Telegram handles the rest.</p>
+
+        <div class="timeline-item reveal" data-step="3">
+          <div class="timeline-content">
+            <h3 data-key="how.3.title">Download</h3>
+            <p data-key="how.3.desc">Click the now-visible native download button. Telegram handles the download via its CDN — no capture, no storage.</p>
+            <img src="screenshots/screenshot-step-3-download.png" alt="Download in progress" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
