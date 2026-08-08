@@ -55,7 +55,7 @@
     <div class="container">
       <div class="hero-content">
         <h1 data-key="hero.title">Telegram Media Downloader</h1>
-        <p class="hero-subtitle" data-key="hero.subtitle">Unhide the native download button in Telegram Web's media viewer and Stories. Download videos, photos, audio and documents directly — no media capture, no local storage.</p>
+        <p class="hero-subtitle" data-key="hero.subtitle">Unhide the native download button in Telegram Web's media viewer and Stories. Download videos, photos, audio and documents directly — no media capture, no local storage, no sign-ups.</p>
         <div class="hero-cta">
           <a href="#download" class="btn btn-primary" data-key="hero.cta">Download v1.0.2</a>
           <a href="https://github.com/VaCris/telegram-web-capture" target="_blank" rel="noopener" class="btn btn-secondary">
@@ -77,41 +77,41 @@
   <!-- ===== Features ===== -->
   <section id="features" class="section">
     <div class="container">
-      <h2 class="section-title" data-key="features.title">Features</h2>
-      <p class="section-subtitle" data-key="features.subtitle">Simple in concept, solid in practice.</p>
+      <h2 class="section-title reveal" data-key="features.title">Features</h2>
+      <p class="section-subtitle reveal" data-key="features.subtitle">Simple in concept, solid in practice.</p>
 
       <div class="features-grid">
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-icon"><span class="icon">👁</span></div>
           <h3 data-key="features.1.title">Unhide Native Download</h3>
           <p data-key="features.1.desc">Telegram Web already has a download button — it just hides it. This extension removes the CSS <code>hide</code> class so the real button reappears.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-icon"><span class="icon">📚</span></div>
           <h3 data-key="features.2.title">All Media Types</h3>
           <p data-key="features.2.desc">Works with videos, photos, audio files and documents — any media you can open in the Telegram Web viewer.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-icon"><span class="icon">📱</span></div>
           <h3 data-key="features.3.title">Stories Support</h3>
           <p data-key="features.3.desc">The download button is also unhidden inside the Stories viewer, so you can save story media too.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-icon"><span class="icon">🔒</span></div>
           <h3 data-key="features.4.title">Privacy First</h3>
           <p data-key="features.4.desc">No media is intercepted, captured or stored locally. You download directly from Telegram's own CDN via their native button.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-icon"><span class="icon">⚡</span></div>
           <h3 data-key="features.5.title">Lightweight</h3>
           <p data-key="features.5.desc">A minimal content script runs every 500 ms. No heavy frameworks, no background noise.</p>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-icon"><span class="icon">🛠</span></div>
           <h3 data-key="features.6.title">Zero Setup</h3>
           <p data-key="features.6.desc">Install and it just works. No options, no configuration, no permissions beyond web.telegram.org.</p>
@@ -123,21 +123,26 @@
   <!-- ===== Demo ===== -->
   <section id="demo" class="section alt">
     <div class="container">
-      <h2 class="section-title" data-key="demo.title">See it in action</h2>
-      <p class="section-subtitle" data-key="demo.subtitle">Screenshots from the actual extension in use.</p>
+      <h2 class="section-title reveal" data-key="demo.title">See it in action</h2>
+      <p class="section-subtitle reveal" data-key="demo.subtitle">Screenshots from the actual extension in use.</p>
 
-      <div class="screenshots">
-        <div class="screenshot">
-          <img src="screenshots/screenshot-step-1-view.png" alt="Viewing media in Telegram Web" loading="lazy">
-          <p class="caption" data-key="demo.1.caption">Open any media to launch the Telegram Web viewer.</p>
+      <div class="step-flow">
+        <div class="step-item reveal">
+          <div class="step-badge" data-step="1">1</div>
+          <div class="step-arrow"><span>→</span></div>
+          <img src="screenshots/screenshot-step-1-view.png" alt="Step 1: View media in Telegram Web" loading="lazy">
+          <p class="step-caption" data-key="demo.1.caption">Open any media to launch the Telegram Web viewer.</p>
         </div>
-        <div class="screenshot">
-          <img src="screenshots/screenshot-step-2-button.png" alt="Download button visible in the viewer" loading="lazy">
-          <p class="caption" data-key="demo.2.caption">The native download button is now visible.</p>
+        <div class="step-item reveal">
+          <div class="step-badge" data-step="2">2</div>
+          <div class="step-arrow"><span>→</span></div>
+          <img src="screenshots/screenshot-step-2-button.png" alt="Step 2: Download button now visible" loading="lazy">
+          <p class="step-caption" data-key="demo.2.caption">The native download button is now visible.</p>
         </div>
-        <div class="screenshot">
-          <img src="screenshots/screenshot-step-3-download.png" alt="Download in progress" loading="lazy">
-          <p class="caption" data-key="demo.3.caption">Click to download — Telegram handles the rest.</p>
+        <div class="step-item reveal">
+          <div class="step-badge" data-step="3">3</div>
+          <img src="screenshots/screenshot-step-3-download.png" alt="Step 3: Downloading starts" loading="lazy">
+          <p class="step-caption" data-key="demo.3.caption">Click to download — Telegram handles the rest.</p>
         </div>
       </div>
     </div>
@@ -146,21 +151,21 @@
   <!-- ===== How it works ===== -->
   <section id="how-it-works" class="section">
     <div class="container">
-      <h2 class="section-title" data-key="how.title">How it works</h2>
-      <p class="section-subtitle" data-key="how.subtitle">Three simple steps — that's all it takes.</p>
+      <h2 class="section-title reveal" data-key="how.title">How it works</h2>
+      <p class="section-subtitle reveal" data-key="how.subtitle">Three simple steps — that's all it takes.</p>
 
       <div class="steps">
-        <div class="step">
+        <div class="step reveal">
           <div class="step-number">1</div>
           <h3 data-key="how.1.title">Install</h3>
           <p data-key="how.1.desc">Load the extension in Chrome via <code>chrome://extensions/</code> as an unpacked extension.</p>
         </div>
-        <div class="step">
+        <div class="step reveal">
           <div class="step-number">2</div>
           <h3 data-key="how.2.title">Open Telegram</h3>
           <p data-key="how.2.desc">Navigate to <a href="https://web.telegram.org" target="_blank" rel="noopener">web.telegram.org</a> and open any media in the viewer.</p>
         </div>
-        <div class="step">
+        <div class="step reveal">
           <div class="step-number">3</div>
           <h3 data-key="how.3.title">Download</h3>
           <p data-key="how.3.desc">Click the now-visible native download button. Telegram handles the download via its CDN.</p>
@@ -172,22 +177,22 @@
   <!-- ===== Install ===== -->
   <section id="install" class="section alt">
     <div class="container">
-      <h2 class="section-title" data-key="install.title">Installation</h2>
+      <h2 class="section-title reveal" data-key="install.title">Installation</h2>
       <div class="install-guide">
         <div class="install-steps">
-          <div class="install-step">
+          <div class="install-step reveal">
             <span class="step-num">1</span>
             <div data-key="install.1">Download the latest release. Grab the ZIP from the <a href="#download">Download</a> section or the <a href="https://github.com/VaCris/telegram-web-capture/releases">GitHub releases</a> page.</div>
           </div>
-          <div class="install-step">
+          <div class="install-step reveal">
             <span class="step-num">2</span>
             <div data-key="install.2">Extract the ZIP to a folder on your computer.</div>
           </div>
-          <div class="install-step">
+          <div class="install-step reveal">
             <span class="step-num">3</span>
             <div data-key="install.3">Open Chrome, go to <code>chrome://extensions/</code>, enable <em>Developer mode</em>, click <em>Load unpacked</em> and select the extracted folder.</div>
           </div>
-          <div class="install-step">
+          <div class="install-step reveal">
             <span class="step-num">4</span>
             <div data-key="install.4">Open <a href="https://web.telegram.org" target="_blank" rel="noopener">web.telegram.org</a>, open any media and the download button will appear.</div>
           </div>
@@ -241,6 +246,13 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== Floating CTA ===== -->
+  <div id="floatCta" class="float-cta">
+    <a href="#download" class="float-cta-link">
+      <span class="float-cta-text" data-key="float.cta">Download now</span>
+    </a>
+  </div>
 
   <script src="script.js"></script>
 </body>

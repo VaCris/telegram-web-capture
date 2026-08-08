@@ -55,6 +55,7 @@
       "download.title": "v1.0.2 Release",
       "download.subtitle": "Download the ready-to-load Chrome extension package (ZIP). Compatible with Chrome, Edge, Brave and Opera.",
       "download.btn": "Download extension ZIP",
+      "float.cta": "Download now",
       "footer.attribution": "Licensed under the <a href=\"https://github.com/VaCris/telegram-web-capture/blob/main/LICENSE\">Apache License 2.0</a>, which requires prominent attribution to the original author.",
       "footer.credit": "Original work by <a href=\"https://github.com/VaCris\">Bryan Alexander Vidal Crispin</a> · <a href=\"https://github.com/VaCris/telegram-web-capture\">github.com/VaCris/telegram-web-capture</a>"
     },
@@ -109,6 +110,7 @@
       "download.title": "Release v1.0.2",
       "download.subtitle": "Descarga el paquete de extensión para Chrome (ZIP), listo para cargar. Compatible con Chrome, Edge, Brave y Opera.",
       "download.btn": "Descargar extensión ZIP",
+      "float.cta": "Descargar ahora",
       "footer.attribution": "Licenciado bajo la <a href=\"https://github.com/VaCris/telegram-web-capture/blob/main/LICENSE\">Apache License 2.0</a>, que requiere atribución destacada al autor original.",
       "footer.credit": "Trabajo original de <a href=\"https://github.com/VaCris\">Bryan Alexander Vidal Crispin</a> · <a href=\"https://github.com/VaCris/telegram-web-capture\">github.com/VaCris/telegram-web-capture</a>"
     }
@@ -174,6 +176,46 @@
       });
     }, { threshold: 0.5 });
     sections.forEach(function(section) { observer.observe(section); });
+  }
+
+  /* ===== Scroll reveal ===== */
+  var revealElements = document.querySelectorAll('.reveal');
+  if (revealElements.length && 'IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  }
+
+  /* ===== Floating CTA ===== */
+  var floatCta = document.getElementById('floatCta');
+  if (floatCta && 'IntersectionObserver' in window) {
+    // Show the floating CTA when the user scrolls past the hero
+    var downloadSection = document.getElementById('download');
+    if (downloadSection) {
+      var floatObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          floatCta.classList.toggle('show', !entry.isIntersecting);
+        });
+      }, { threshold: 0 });
+      floatObserver.observe(downloadSection);
+    }
+
+    // Smooth scroll to the download section
+    floatCta.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById('download');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   }
 
   // Initialize
