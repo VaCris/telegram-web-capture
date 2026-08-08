@@ -218,6 +218,26 @@
     });
   }
 
+  /* ===== Parallax background ===== */
+  var parallaxBg = document.querySelector('.parallax-bg');
+  if (parallaxBg) {
+    var onScroll = function() {
+      var scrollY = window.scrollY;
+      parallaxBg.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ===== Nav scroll state ===== */
+  var nav = document.querySelector('.nav');
+  if (nav) {
+    var onNavScroll = function() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onNavScroll, { passive: true });
+    onNavScroll();
+  }
+
   // Initialize
   setLanguage(currentLang);
 })();
