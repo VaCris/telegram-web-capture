@@ -5,164 +5,158 @@
 [![Version](https://img.shields.io/badge/version-1.0.2-blue)](https://github.com/VaCris/telegram-web-capture/releases)
 [![GitHub Stars](https://img.shields.io/github/stars/VaCris/telegram-web-capture?style=social)](https://github.com/VaCris/telegram-web-capture/stargazers)
 [![GitHub Release](https://img.shields.io/github/v/release/VaCris/telegram-web-capture)](https://github.com/VaCris/telegram-web-capture/releases)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/VaCris/telegram-web-capture)](https://github.com/VaCris/telegram-web-capture/commits)
 
 Una extensión de Chrome que **muestra el botón de descarga nativo de Telegram** cuando abres el visor multimedia y las Stories en Telegram Web. Sin capturar ni almacenar medios: simplemente hace visible el botón que Telegram ya oculta, para que descargues **directamente** con el propio sistema de Telegram.
 
 ---
 
-## Table of Contents
+## Tabla de contenidos
 
-- [Demo](#demo)
-- [Características](#características--features)
-- [Instalación](#instalación--installation)
-- [Uso](#uso--usage)
-- [Cómo funciona](#cómo-funciona--how-it-works)
-- [Estructura del proyecto](#estructura-del-proyecto--project-structure)
-- [Desarrollo](#desarrollo--development)
-- [Compatibilidad](#compatibilidad--compatibility)
-- [Contribuir](#contribuir--contributing)
-- [Licencia](#licencia--license)
-
----
-
-## Demo
-
-### Media viewer
-
-The native Telegram download button is unhidden in the media viewer so you can download videos, photos, audio, and documents instantly.
-
-![Media viewer screenshot](docs/screenshots/screenshot-media-viewer.png)
-
-### Stories
-
-The same behaviour applies inside the Stories viewer.
-
-![Stories screenshot](docs/screenshots/screenshot-stories.png)
+- [Características](#características)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Cómo funciona](#cómo-funciona)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Desarrollo](#desarrollo)
+- [Compatibilidad](#compatibilidad)
+- [Contribuir](#contribuir)
+- [Licencia](#licencia)
 
 ---
 
-## Características / Features
+## Características
 
-| | |
-|---|---|
-| ✅ | **Unhide native download** — shows Telegram Web's hidden download button in the media viewer. |
-| ✅ | **Works in Stories** — also unhides the download button when viewing Stories. |
-| ✅ | **All media types** — videos, audios, images and documents. |
-| ✅ | **No media capture/storage** — nothing is intercepted or saved; you download directly from Telegram's CDN. |
-| ✅ | **No configuration needed** — install and it just works. |
-| ✅ | **Manifest V3** — built on the modern Chrome extension platform. |
-| ✅ | **Lightweight** — runs a minimal content script that polls the DOM every 500 ms. |
+- **Muestra el botón de descarga nativo** en el visor multimedia de Telegram Web.
+- **Funciona en Stories** — también muestra el botón dentro del visor de Stories.
+- **Todos los tipos de medio** — videos, audios, imágenes y documentos.
+- **Sin captura ni almacenamiento** — no intercepta ni guarda los medios; descargas directamente del CDN de Telegram.
+- **Sin configuración** — instala y funciona.
+- **Manifest V3** — construido sobre la plataforma moderna de extensiones de Chrome.
+- **Ligero** — un content script mínimo que revisa el DOM cada 500 ms.
+
+<!-- ===== CAPTURAS DE PANTALLA =====
+     Puedes agregar capturas de pantalla aquí.
+     Recomendación: una captura del visor multimedia con el botón de descarga visible,
+     y otra de las Stories.
+     Usa la convención: docs/screenshots/nombre.png
+     Ejemplo:
+     ![Visor multimedia](docs/screenshots/screenshot-media-viewer.png)
+     ![Stories](docs/screenshots/screenshot-stories.png)
+-->
 
 ---
 
-## Instalación / Installation
+## Instalación
 
-### Option A — Manual (unpacked extension)
+### Opción A — Desde el release (recomendado)
 
-Ideal para probar la última versión de `main`.
+1. Descarga el [último release](https://github.com/VaCris/telegram-web-capture/releases) en la sección de **Assets**.
+2. Descarga el archivo `telegram-web-capture-1.0.2.zip`.
+3. Extrae el ZIP a una carpeta en tu computadora.
+4. Abre Chrome y navega a `chrome://extensions/`.
+5. Activa **"Modo desarrollador"** (esquina superior derecha).
+6. Haz clic en **"Cargar extensión sin empaquetar"**.
+7. Selecciona la carpeta que extraíste en el paso 3.
+8. La extensión aparecerá en tu barra de herramientas.
 
-1. Descarga el [último release](https://github.com/VaCris/telegram-web-capture/releases) y descomprime el ZIP, **o** clona el repositorio:
+### Opción B — Desde el código fuente (desarrollo)
+
+1. Clona el repositorio:
    ```bash
    git clone https://github.com/VaCris/telegram-web-capture.git
    ```
-2. Abre Chrome y navega a `chrome://extensions/`.
-3. Activa **Modo desarrollador** (esquina superior derecha).
-4. Haz clic en **Cargar extensión sin empaquetar**.
-5. Selecciona la carpeta del proyecto (`telegram-web-capture`).
-6. La extensión aparecerá en tu barra de herramientas.
+2. Abre Chrome en `chrome://extensions/`.
+3. Activa **Modo desarrollador**.
+4. Haz clic en **Cargar extensión sin empaquetar** y selecciona la carpeta `telegram-web-capture`.
 
-> **Edge / Brave / Opera** — estos navegadores también soportan extensiones de Chrome. Activa la opción de extensiones desbloqueadas desde `edge://extensions/` y sigue los mismos pasos.
-
-### Option B — Chrome Web Store (próximamente)
-
-Once published to the [Chrome Web Store](https://chromeweb.google.com/), you'll be able to install it with a single click — keep an eye on the releases page.
+> **Edge / Brave / Opera** — estos navegadores también soportan extensiones de Chrome. Activa la opción de extensiones desbloqueadas y sigue los mismos pasos.
 
 ---
 
-## Uso / Usage
+## Uso
 
 1. Abre [Telegram Web](https://web.telegram.org) e inicia sesión.
-2. Navega por tus chats, canales o grupos.
-3. Haz clic en cualquier video, imagen, audio o documento para abrir el **visor multimedia**.
-4. El botón de descarga que Telegram oculta (normalmente en la esquina inferior derecha) **aparecerá automáticamente**.
-5. Haz clic en ese botón (💾) para descargar el archivo directamente a tu carpeta de descargas.
+2. Navega a un chat, canal o grupo.
+3. **Visualizar el video** — abre o reproduce un video, imagen, audio o documento para que aparezca el visor multimedia.
+4. **Saldrán los botones** — la extensión hará visible el botón de descarga nativo de Telegram (icono de 💾) en la barra del visor.
+5. **Comienza a descargar** — haz clic en el botón de descarga y el archivo se descargará directamente a tu carpeta de descargas.
 
-That's it — no popup interaction required. The extension works in the background by toggling a CSS class on the native buttons.
+### En las Stories
 
-### Stories
-
-1. Reproduce o abre una Story.
-2. El botón de descarga también aparecerá visible en el visor de Stories.
-
----
-
-## Cómo funciona / How it works
-
-Telegram Web already includes a native download button inside its media viewer and Stories viewer — but it is hidden via the CSS class `hide` (i.e. `display: none`).
-
-This extension injects a lightweight [content script](content/content.js) that periodically scans the DOM for `.media-viewer-whole` and the `#stories-viewer` containers. When it finds buttons with the `hide` class inside `.media-viewer-buttons`, it **removes the `hide` class**, making the native download button visible again.
-
-Because it reuses Telegram's own download mechanism, there is:
-
-- ❌ No reverse-engineering of private APIs.
-- ❌ No interception of network requests for media capture.
-- ❌ No local storage of your downloads.
-- ✅ A privacy-friendly, source-available solution.
-
-The [background script](background/background.js) exists to support download-URL resolution via `chrome.webRequest`, and listens for download messages — but the primary mechanism is the native button unhide.
+1. Abre una Story haciendo clic en su miniatura.
+2. **Saldrán los botones** — el botón de descarga también será visible en el visor de Stories.
+3. **Comienza a descargar** — haz clic para guardar el contenido de la Story.
 
 ---
 
-## Estructura del proyecto / Project structure
+## Cómo funciona
+
+Telegram Web ya incluye un botón de descarga nativo en su visor multimedia y en el visor de Stories, pero lo oculta mediante la clase CSS `hide` (es decir, `display: none`).
+
+Esta extensión inyecta un **content script** (`content/content.js`) que revisa periódicamente el DOM en busca de:
+
+- El contenedor `.media-viewer-whole` y dentro de él los botones en `.media-viewer-buttons`
+- El visor de Stories (`#stories-viewer`)
+
+Cuando encuentra botones con la clase `hide`, **la elimina**, haciendo visible el botón de descarga real de Telegram.
+
+Como reutiliza el mecanismo de descarga nativo de Telegram:
+
+- ❌ No se hace ingeniería inversa de APIs privadas.
+- ❌ No se interceptan peticiones para capturar medios.
+- ❌ No se almacenan los archivos localmente.
+- ✅ Es una solución de código abierto y respetuosa con la privacidad.
+
+---
+
+## Estructura del proyecto
 
 ```
 telegram-web-capture/
-├── manifest.json            # Chrome extension manifest (MV3)
+├── manifest.json              # Configuración de la extensión (MV3)
 ├── background/
-│   └── background.js        # Background service worker
+│   └── background.js          # Service worker para resolver URLs de CDN
 ├── content/
-│   ├── content.js           # Content script — unhides native download buttons
-│   └── content.css          # Styles for any injected elements
+│   ├── content.js             # Content script: muestra el botón de descarga
+│   └── content.css            # Estilos para elementos inyectados
 ├── popup/
-│   ├── popup.html           # Popup markup
-│   ├── popup.css            # Popup styles
-│   └── popup.js             # Popup logic
+│   ├── popup.html             # Interfaz de la extensión
+│   ├── popup.css              # Estilos de la interfaz
+│   └── popup.js               # Lógica de la interfaz
 ├── icons/
-│   ├── icon.svg             # Source vector icon
-│   ├── icon16.png           # 16×16  (toolbar)
-│   ├── icon48.png           # 48×48  (extension manager)
-│   └── icon128.png          # 128×128 (Chrome Web Store)
+│   ├── icon.svg               # Icono fuente (vector)
+│   ├── icon16.png             # 16×16  (barra de herramientas)
+│   ├── icon48.png             # 48×48  (gestor de extensiones)
+│   └── icon128.png            # 128×128 (Chrome Web Store)
 ├── docs/
-│   ├── index.html           # Landing page (GitHub Pages)
-│   ├── screenshots/         # Promotional screenshots
-│   └── assets/              # Landing page assets
-├── README.md                # This file
-├── TESTING.md               # Manual testing guide
-├── CHANGELOG.md             # Changelog
-└── LICENSE                  # Apache License 2.0
+│   ├── index.html             # Landing page
+│   ├── style.css              # Estilos de la landing page
+│   ├── script.js              # Lógica de la landing page
+│   ├── assets/                # Iconos para la landing page
+│   └── screenshots/           # Carpeta para capturas de pantalla
+├── README.md                  # Este archivo
+├── TESTING.md                 # Guía de pruebas manuales
+├── CHANGELOG.md               # Historial de cambios
+├── .gitignore                 # Archivos ignorados por git
+└── LICENSE                    # Licencia Apache 2.0
 ```
 
 ---
 
-## Desarrollo / Development
+## Desarrollo
 
-1. Clonea el repositorio:
+1. Clona el repositorio:
    ```bash
    git clone https://github.com/VaCris/telegram-web-capture.git
    cd telegram-web-capture
    ```
-2. Carga la extensión sin empaquetar en `chrome://extensions/` (ver [Instalación](#instalación--installation)).
+2. Carga la extensión sin empaquetar en `chrome://extensions/` (ver [Instalación](#instalación)).
 3. Haz cambios en los archivos de `content/`, `background/` o `popup/`.
 4. Recarga la extensión desde `chrome://extensions/` pulsando el botón de recargar.
 
-### Testing
+### Generar el ZIP de release
 
-See [TESTING.md](TESTING.md) for the manual testing guide.
-
-### Creating a release ZIP
-
-Para generar el paquete ZIP listo para cargar como extensión sin empaquetar:
+Para crear el paquete ZIP listo para cargar como extensión sin empaquetar:
 
 ```bash
 zip -r telegram-web-capture-1.0.2.zip \
@@ -177,7 +171,7 @@ zip -r telegram-web-capture-1.0.2.zip \
 
 ---
 
-## Compatibilidad / Compatibility
+## Compatibilidad
 
 | Navegador | Estado |
 |-----------|--------|
@@ -185,13 +179,13 @@ zip -r telegram-web-capture-1.0.2.zip \
 | Microsoft Edge (Chromium) | ✅ Compatible |
 | Brave (desktop) | ✅ Compatible |
 | Opera (desktop) | ✅ Compatible* |
-| Firefox | ❌ No (MV3 / WebExtensions differences) |
+| Firefox | ❌ No compatible (MV3 / diferencias WebExtensions) |
 
-\* Opera requires [the "Install Chrome Extension" add-on](https://addons.opera.com/en/extensions/details/install-chrome-extensions/).
+\* Opera requiere [la extensión "Install Chrome Extensions"](https://addons.opera.com/en/extensions/details/install-chrome-extensions/).
 
 ---
 
-## Contribuir / Contributing
+## Contribuir
 
 ¡Las contribuciones son bienvenidas! Por favor:
 
@@ -207,22 +201,24 @@ zip -r telegram-web-capture-1.0.2.zip \
 
 ---
 
-## Licencia / License
+## Licencia
 
-This project is licensed under the **Apache License 2.0** — see [LICENSE](LICENSE) for details.
+Esta obra está licenciada bajo la **Apache License 2.0** — consulta [LICENSE](LICENSE) para más detalles.
 
-### Attribution requirement
+### Requisito de atribución
 
-As specified in the license, **any fork, derivative work, or redistribution of this software must include prominent attribution** to the original author:
+Como se especifica en la licencia, **cualquier fork, obra derivada o redistribución de este software debe incluir una atribución destacada** al autor original:
 
 > Original work by Bryan Alexander Vidal Crispin
 > https://github.com/VaCris/telegram-web-capture
 
-This attribution must be visible in:
-- The project's README.md or similar documentation.
-- Any published distribution (GitHub releases, npm, etc.).
-- The source code headers of modified files.
+Esta atribución debe ser visible en:
+- El README.md o documentación similar del proyecto.
+- Cualquier distribución publicada (GitHub releases, npm, etc.).
+- Las cabeceras de los archivos fuente modificados.
 
 ---
 
-*Diseñado y mantenido por [Bryan Alexander Vidal Crispin](https://github.com/VaCris).*
+*Desarrollado y mantenido por [Bryan Alexander Vidal Crispin](https://github.com/VaCris).*
+
+**Landing page:** https://vacris.github.io/telegram-web-capture/
