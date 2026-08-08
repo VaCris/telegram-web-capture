@@ -34,15 +34,7 @@ Una extensión de Chrome que **muestra el botón de descarga nativo de Telegram*
 - **Manifest V3** — construido sobre la plataforma moderna de extensiones de Chrome.
 - **Ligero** — un content script mínimo que revisa el DOM cada 500 ms.
 
-<!-- ===== CAPTURAS DE PANTALLA =====
-     Puedes agregar capturas de pantalla aquí.
-     Recomendación: una captura del visor multimedia con el botón de descarga visible,
-     y otra de las Stories.
-     Usa la convención: docs/screenshots/nombre.png
-     Ejemplo:
-     ![Visor multimedia](docs/screenshots/screenshot-media-viewer.png)
-     ![Stories](docs/screenshots/screenshot-stories.png)
--->
+Las capturas de pantalla paso a paso se muestran en la sección de [Uso](#uso).
 
 ---
 
