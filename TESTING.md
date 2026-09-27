@@ -1,87 +1,79 @@
-# Guía de Pruebas — Telegram Media Downloader
+# Testing Guide — Telegram Media Downloader
 
-Esta guía describe cómo verificar manualmente que la extensión funciona correctamente.
+<div align="center">
 
-## Prueba rápida
+🇺🇸 **English** · 🇪🇸 [Español](TESTING_ES.md)
 
-1. **Cargar la extensión:**
-   - Abre Chrome y navega a `chrome://extensions/`.
-   - Activa **"Modo desarrollador"** (esquina superior derecha).
-   - Haz clic en **"Cargar extensión sin empaquetar"**.
-   - Selecciona la carpeta `telegram-web-capture`.
-2. **Confirmar instalación:**
-   - La extensión "Telegram Media Downloader" debe aparecer en la cuadrícula de extensiones.
-   - Opcionalmente, fíjala a la barra de herramientas haciendo clic en el icono de la pastilla.
-3. **Navegar a Telegram Web:**
-   - Abre [web.telegram.org](https://web.telegram.org) e inicia sesión.
-4. **Abrir el visor multimedia:**
-   - Haz clic en cualquier **video**, **imagen**, **audio** o **documento** en un chat, canal o grupo.
-   - Debe abrirse el visor multimedia de Telegram (overlay oscuro con el medio centrado).
-5. **Verificar el botón de descarga:**
-   - En la esquina inferior derecha del visor (o en la barra de herramientas del visor) deberías ver el **botón de descarga nativo de Telegram** (un icono de flecha ↓ / disco).
-   - El botón **debe estar visible** y **no oculto**.
-6. **Probar la descarga:**
-   - Haz clic en el botón de descarga.
-   - El archivo debe comenzar a descargarse automáticamente a tu carpeta de descargas predeterminada.
+</div>
 
-## Prueba en Stories
+This guide explains how to manually verify the current extension behavior.
 
-1. Abre una **Story** (haz clic en una miniatura de story en la parte superior).
-2. El visor de Stories se abre.
-3. El **botón de descarga nativo también debe estar visible** en el visor de Stories.
+## Quick test
 
-## Qué está probando
+1. **Load the extension**
+   - Open Chrome and go to `chrome://extensions/`.
+   - Enable **Developer mode**.
+   - Click **Load unpacked**.
+   - Select the `telegram-web-capture` folder.
+2. **Confirm installation**
+   - Verify that **Telegram Media Downloader** appears in the extensions list.
+3. **Open Telegram Web**
+   - Go to [web.telegram.org](https://web.telegram.org) and sign in.
+4. **Open the media viewer**
+   - Open an image, video, audio file, or document from a chat, channel, or group.
+5. **Verify the download button**
+   - Telegram's native download button should be visible in the viewer instead of remaining hidden.
+6. **Test the download**
+   - Click the native download button.
+   - Telegram should handle the download through its normal browser flow.
 
-| Comportamiento | Resultado esperado |
-|---|---|
-| Visor multimedia se abre | El medio se muestra en un overlay |
-| Botón de descarga visible | El botón nativo de Telegram aparece (no está oculto por `hide`) |
-| Click en descargar | El archivo se descarga vía el CDN de Telegram |
-| Stories viewer | El botón de descarga también es visible |
+## Stories test
 
-## Solución de problemas
+1. Open a Story.
+2. Verify that the Stories viewer opens correctly.
+3. Confirm that Telegram's native download control is visible when Telegram includes it in the viewer.
 
-### El botón de descarga no aparece
+## Expected behavior
 
-- ✅ Verifica que estés en **web.telegram.org**, **webk.telegram.org** o **webz.telegram.org** (no en la app de escritorio).
-- ✅ Abre el **visor multimedia** haciendo clic en un medio — el botón solo existe dentro del visor.
-- ✅ **Recarga la página** de Telegram Web (F5) y vuelve a abrir el visor.
-- ✅ Asegúrate de que la extensión esté **activada** en `chrome://extensions/`.
-- ✅ Telegram Web puede actualizar su estructura DOM. Si el botón deja de aparecer, revisa la consola (ver abajo) y verifica los selectores en `content/content.js`.
+| Behavior | Expected result |
+| --- | --- |
+| Media viewer opens | The selected media is displayed in Telegram's viewer |
+| Download control | Telegram's native download button is visible |
+| Download click | Telegram handles the download normally |
+| Stories viewer | Hidden native controls are revealed |
 
-### Las descargas no funcionan
+## Troubleshooting
 
-- ✅ Telegram maneja la descarga nativamente — la extensión no interfiere con el proceso de descarga.
-- ✅ Si el navegador bloquea la descarga, verifica que estés en una pestaña **activa** de Telegram Web.
+### The download button does not appear
+
+- Confirm that you are using `web.telegram.org`, `webk.telegram.org`, or `webz.telegram.org`.
+- Open the media inside Telegram's viewer; the extension targets viewer controls.
+- Reload Telegram Web and open the media again.
+- Confirm that the extension is enabled in `chrome://extensions/`.
+- Telegram may have changed its DOM structure. Inspect the selectors used by `content/content.js`.
 
 ## Debugging
 
-1. **Abrir la consola de la extensión:**
-   - Ve a `chrome://extensions/`.
-   - Haz clic en **"Detalles"** de la extensión "Telegram Media Downloader".
-   - Haz clic en "Ver vistas de la extensión" → "Service Worker" para ver logs del `background.js`.
-2. **Ver logs del content script:**
-   - Abre Telegram Web.
-   - Presiona **F12** para abrir DevTools.
-   - Ve a la pestaña **Console**.
-   - Busca mensajes con `[TG Downloader]`.
-3. **Verificar selectores CSS:**
-   - En DevTools (F12), abre la pestaña **Elements**.
-   - Abre el visor multimedia reproduciendo o haciendo clic en un medio.
-   - Busca el contenedor `.media-viewer-whole`.
-   - Dentro, verifica que exista `.media-viewer-buttons` con botones que tengan la clase `hide`.
-   - Si los selectores han cambiado, actualiza `scanMediaViewer()` y `scanStories()` en `content/content.js`.
-4. **Verificar detección de CDN:**
-   - La lógica de resolución de URLs de CDN está en `background/background.js` (regex `CDN_RE`).
-   - Añade nuevos patrones si Telegram cambia sus dominios de CDN.
+1. Open Telegram Web.
+2. Press **F12** to open DevTools.
+3. Open the **Elements** tab.
+4. Open Telegram's media viewer.
+5. Check for:
+   - `.media-viewer-whole`
+   - `.media-viewer-buttons`
+   - `button.btn-icon.hide`
+6. For Stories, inspect `#stories-viewer`.
+7. If Telegram changed these elements, update `scanMediaViewer()` or `scanStories()` in `content/content.js`.
 
-## Ajustes necesarios
+## Current runtime scope
 
-Si la extensión deja de funcionar debido a actualizaciones de Telegram Web:
+The current `manifest.json` registers the content script and CSS for Telegram Web. Although the repository still contains `background/` and `popup/` source files, they are not currently registered by the manifest and should not be treated as active extension runtime components during these tests.
 
-1. **Selectores CSS en `content/content.js`:**
-   - Telegram Web cambia sus clases CSS regularmente.
-   - Actualiza los selectores en `scanMediaViewer()` y `scanStories()`.
-2. **Detección de CDN en `background/background.js`:**
-   - Verifica que las URLs de Telegram coincidan con `CDN_RE`.
-   - Añade nuevos patrones si es necesario.
+## When Telegram changes its UI
+
+The most likely maintenance point is `content/content.js`, especially the selectors used by:
+
+- `scanMediaViewer()`
+- `scanStories()`
+
+Re-test both the media viewer and Stories after changing these selectors.
