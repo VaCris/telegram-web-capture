@@ -93,7 +93,9 @@ telegram-web-capture/
 ├── README.md
 ├── README_ES.md
 ├── TESTING.md
+├── TESTING_ES.md
 ├── CHANGELOG.md
+├── CHANGELOG_ES.md
 ├── LICENSE
 └── .gitignore
 ```
@@ -108,7 +110,7 @@ La extensión actual no requiere un paso de compilación.
 4. Recarga la extensión desde `chrome://extensions/`.
 5. Actualiza Telegram Web y verifica el flujo afectado.
 
-Para pruebas manuales consulta [TESTING.md](TESTING.md).
+Para pruebas manuales consulta [TESTING_ES.md](TESTING_ES.md).
 
 ## Compatibilidad
 
@@ -149,6 +151,6 @@ https://github.com/VaCris/telegram-web-capture
 ## Enlaces
 
 - [Releases](https://github.com/VaCris/telegram-web-capture/releases)
-- [Changelog](CHANGELOG.md)
-- [Guía de pruebas](TESTING.md)
+- [Historial de cambios](CHANGELOG_ES.md)
+- [Guía de pruebas](TESTING_ES.md)
 - [Landing page](https://vacris.github.io/telegram-web-capture/)
