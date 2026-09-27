@@ -1,9 +1,14 @@
 # Changelog
 
+<div align="center">
+
+🇺🇸 **English** · 🇪🇸 [Español](CHANGELOG_ES.md)
+
+</div>
+
 All notable changes to this project are documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.0.2] - 2026-08-08
 
@@ -16,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Landing page with feature highlights and installation instructions.
 
 ### Changed
-- Regenerated PNG icons from the SVG source at proper resolutions (16×16, 48×48, 128×128) with full RGBA — replacing the previous low-colour-depth placeholders.
+- Regenerated PNG icons from the SVG source at proper resolutions (16×16, 48×48, 128×128) with full RGBA, replacing the previous low-colour-depth placeholders.
 - Cleaned up the icon SVG so the download arrow is fully visible on the blue background.
 - Content script now explicitly targets both the media viewer and Stories viewer containers.
 
