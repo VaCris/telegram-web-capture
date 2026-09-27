@@ -93,7 +93,9 @@ telegram-web-capture/
 ├── README.md
 ├── README_ES.md
 ├── TESTING.md
+├── TESTING_ES.md
 ├── CHANGELOG.md
+├── CHANGELOG_ES.md
 ├── LICENSE
 └── .gitignore
 ```
