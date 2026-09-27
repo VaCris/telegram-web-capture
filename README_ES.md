@@ -1,15 +1,23 @@
-# Telegram Media Downloader
+<h1 align="center">Telegram Media Downloader</h1>
 
-[![Licencia](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Manifest](https://img.shields.io/badge/Manifest%20V3-Chrome%20Extension-orange)](manifest.json)
-[![Versión](https://img.shields.io/badge/version-1.0.2-blue)](https://github.com/VaCris/telegram-web-capture/releases)
-[![GitHub Stars](https://img.shields.io/github/stars/VaCris/telegram-web-capture?style=social)](https://github.com/VaCris/telegram-web-capture/stargazers)
+<p align="center">
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="Licencia">
+  </a>
+  <a href="manifest.json">
+    <img src="https://img.shields.io/badge/Manifest%20V3-Chrome%20Extension-orange" alt="Manifest">
+  </a>
+  <a href="https://github.com/VaCris/telegram-web-capture/releases">
+    <img src="https://img.shields.io/badge/version-1.0.2-blue" alt="Versión">
+  </a>
+  <a href="https://github.com/VaCris/telegram-web-capture/stargazers">
+    <img src="https://img.shields.io/github/stars/VaCris/telegram-web-capture?style=social" alt="GitHub Stars">
+  </a>
+</p>
 
-<div align="center">
-
-🇺🇸 [English](README.md) · 🇪🇸 **Español**
-
-</div>
+<p align="center">
+  🇺🇸 <a href="README.md">English</a> · 🇪🇸 <strong>Español</strong>
+</p>
 
 Telegram Media Downloader es una extensión ligera para Chrome que hace visible el **botón de descarga nativo de Telegram Web** dentro del visor multimedia y del visor de Stories.
 
