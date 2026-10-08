@@ -1,0 +1,30 @@
+{
+  "extName": {
+    "message": "Telegram Media Downloader",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Unhide download button in Telegram Web media viewer",
+    "description": "Extension description"
+  },
+  "popupHint": {
+    "message": "Reveals Telegram Web's own download button. No media is captured or stored.",
+    "description": "Popup footer hint"
+  },
+  "popupStatusOn": {
+    "message": "Telegram Web open",
+    "description": "Popup status when the active tab is Telegram Web"
+  },
+  "popupStatusOff": {
+    "message": "Not on Telegram Web",
+    "description": "Popup status when the active tab is not Telegram Web"
+  },
+  "popupToggle": {
+    "message": "Extension enabled",
+    "description": "Popup on/off toggle label"
+  },
+  "popupOpenTelegram": {
+    "message": "Open Telegram",
+    "description": "Popup button that opens Telegram Web"
+  }
+}

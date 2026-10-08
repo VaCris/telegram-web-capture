@@ -16,9 +16,10 @@
 
   <title>Telegram Media Downloader</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/icon48.png" type="image/png" sizes="48x48">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.3.2/css/flag-icons.min.css" integrity="sha384-8olrmTcwXL3OYMeB+2ok8jx9/U/FZxeLnoRWdu1Pyi+lakrkqoI7hfysfQF5Q1Xx" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -42,8 +43,8 @@
           <a href="https://github.com/VaCris/telegram-web-capture" target="_blank" rel="noopener" class="nav-link-external" data-key="nav.source">Source</a>
         </nav>
         <div class="lang-switch">
-          <button class="lang-btn lang-en" data-lang="en" data-key="lang.en">EN</button>
-          <button class="lang-btn lang-es" data-lang="es" data-key="lang.es">ES</button>
+          <button class="lang-btn lang-en" data-lang="en"><span class="fi fi-gb" aria-hidden="true"></span>EN</button>
+          <button class="lang-btn lang-es" data-lang="es"><span class="fi fi-es" aria-hidden="true"></span>ES</button>
         </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
           <span></span><span></span><span></span>
@@ -110,7 +111,7 @@
         <div class="feature-card reveal">
           <div class="feature-icon"><svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6v8l9-12h-6z"/><circle cx="9" cy="9" r="1.5"/></svg></div>
           <h3 data-key="features.5.title">Lightweight</h3>
-          <p data-key="features.5.desc">A minimal content script runs every 500 ms. No heavy frameworks, no background noise.</p>
+          <p data-key="features.5.desc">A minimal content script driven by a MutationObserver. No polling, no heavy frameworks, no background noise.</p>
         </div>
 
         <div class="feature-card reveal">

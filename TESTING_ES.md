@@ -8,6 +8,17 @@
 
 Esta guía explica cómo verificar manualmente el comportamiento actual de la extensión.
 
+## Tests automatizados
+
+El content script tiene una suite de tests con jsdom que cubre el comportamiento de los selectores:
+
+```bash
+npm install
+npm test
+```
+
+Ejecútala tras cualquier cambio en `content/content.js` y antes de las pruebas manuales.
+
 ## Prueba rápida
 
 1. **Carga la extensión**
@@ -33,6 +44,14 @@ Esta guía explica cómo verificar manualmente el comportamiento actual de la ex
 2. Verifica que el visor de Stories se abra correctamente.
 3. Confirma que el control nativo de descarga sea visible cuando Telegram lo incluya en el visor.
 
+## Prueba del popup
+
+1. Pulsa el icono de la extensión en la barra de herramientas.
+2. En Telegram Web el punto de estado debe ponerse en verde ("Telegram Web abierto"); en cualquier otro sitio permanece rojo.
+3. Desactiva el interruptor, abre el visor multimedia y comprueba que los botones ocultos siguen ocultos.
+4. Reactívalo y comprueba que los botones ocultos se vuelven visibles.
+5. Pulsa **Abrir Telegram** — debe abrirse una pestaña con Telegram Web.
+
 ## Resultado esperado
 
 | Comportamiento | Resultado esperado |
@@ -41,6 +60,8 @@ Esta guía explica cómo verificar manualmente el comportamiento actual de la ex
 | Control de descarga | El botón nativo de Telegram es visible |
 | Clic en descargar | Telegram gestiona la descarga normalmente |
 | Visor de Stories | Los controles nativos ocultos se hacen visibles |
+| Popup en Telegram | Punto de estado en verde, interruptor activado |
+| Interruptor apagado | Los botones ocultos del visor permanecen ocultos |
 
 ## Solución de problemas
 
@@ -63,17 +84,17 @@ Esta guía explica cómo verificar manualmente el comportamiento actual de la ex
    - `.media-viewer-buttons`
    - `button.btn-icon.hide`
 6. Para Stories, revisa `#stories-viewer`.
-7. Si Telegram cambió estos elementos, actualiza `scanMediaViewer()` o `scanStories()` en `content/content.js`.
+7. Si Telegram cambió estos elementos, actualiza los selectores en `content/content.js`.
 
 ## Alcance actual del runtime
 
-El `manifest.json` actual registra el content script y el CSS para Telegram Web. Aunque el repositorio todavía contiene código dentro de `background/` y `popup/`, esos componentes no están registrados actualmente en el manifest y no deben considerarse parte activa del runtime al ejecutar estas pruebas.
+El `manifest.json` actual registra un único content script para Telegram Web. La extensión no tiene service worker de fondo, ni popup, y no solicita permisos más allá de las coincidencias del content script.
 
 ## Cuando Telegram cambie su interfaz
 
 El punto principal de mantenimiento será `content/content.js`, especialmente los selectores utilizados por:
 
-- `scanMediaViewer()`
-- `scanStories()`
+- `scan()`
+- `unhideButtons()`
 
 Después de modificarlos, vuelve a probar tanto el visor multimedia como Stories.

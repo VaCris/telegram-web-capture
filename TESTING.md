@@ -8,6 +8,17 @@
 
 This guide explains how to manually verify the current extension behavior.
 
+## Automated tests
+
+The content script has a jsdom test suite covering selector behaviour:
+
+```bash
+npm install
+npm test
+```
+
+Run it after any change to `content/content.js` and before manual testing.
+
 ## Quick test
 
 1. **Load the extension**
@@ -33,6 +44,14 @@ This guide explains how to manually verify the current extension behavior.
 2. Verify that the Stories viewer opens correctly.
 3. Confirm that Telegram's native download control is visible when Telegram includes it in the viewer.
 
+## Popup test
+
+1. Click the extension icon in the toolbar.
+2. On Telegram Web the status dot must turn green ("Telegram Web open"); on any other site it stays red.
+3. Toggle the switch off, open a media viewer, and confirm hidden buttons stay hidden.
+4. Toggle it back on and confirm hidden buttons become visible again.
+5. Click **Open Telegram** — a new tab with Telegram Web must open.
+
 ## Expected behavior
 
 | Behavior | Expected result |
@@ -41,6 +60,8 @@ This guide explains how to manually verify the current extension behavior.
 | Download control | Telegram's native download button is visible |
 | Download click | Telegram handles the download normally |
 | Stories viewer | Hidden native controls are revealed |
+| Popup on Telegram | Green status dot, toggle on |
+| Popup toggle off | Hidden viewer buttons stay hidden |
 
 ## Troubleshooting
 
@@ -63,17 +84,17 @@ This guide explains how to manually verify the current extension behavior.
    - `.media-viewer-buttons`
    - `button.btn-icon.hide`
 6. For Stories, inspect `#stories-viewer`.
-7. If Telegram changed these elements, update `scanMediaViewer()` or `scanStories()` in `content/content.js`.
+7. If Telegram changed these elements, update the selectors in `content/content.js`.
 
 ## Current runtime scope
 
-The current `manifest.json` registers the content script and CSS for Telegram Web. Although the repository still contains `background/` and `popup/` source files, they are not currently registered by the manifest and should not be treated as active extension runtime components during these tests.
+The current `manifest.json` registers a single content script for Telegram Web. The extension has no background service worker, no popup, and no requested permissions beyond content script matches.
 
 ## When Telegram changes its UI
 
 The most likely maintenance point is `content/content.js`, especially the selectors used by:
 
-- `scanMediaViewer()`
-- `scanStories()`
+- `scan()`
+- `unhideButtons()`
 
 Re-test both the media viewer and Stories after changing these selectors.
