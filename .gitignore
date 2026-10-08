@@ -1,5 +1,9 @@
+# Dependencies (dev tooling only)
+node_modules/
+
 # Release artifacts
 *.zip
+dist/
 
 # OS files
 .DS_Store

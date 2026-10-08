@@ -10,6 +10,24 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-10-08
+
+### Added
+- Toolbar popup: connection status for the active tab, an on/off toggle persisted in `chrome.storage`, and an Open Telegram shortcut (localized EN/ES).
+- Manifest localization via Chrome's `_locales` system (English default, Spanish included).
+- SVG country flags on the landing page language switcher, rendered with the [flag-icons](https://github.com/lipis/flag-icons) library.
+- jsdom test suite for the content script (`npm test`) covering media viewer, Stories viewer, and observer behaviour.
+- Packaging script (`npm run package`) that builds a clean release zip with runtime files only (16 KB instead of the full repository weight).
+
+### Changed
+- Landing page auto-detects the browser language on first visit: Spanish browsers get Spanish without clicking, everything else gets English; a manual choice stored in `localStorage` always wins.
+- Replaced the 500 ms polling interval with a debounced `MutationObserver`: downloads appear instantly and the script has no idle cost.
+- Unhides every hidden viewer button again: the previous download-icon check (`\uE95E`) no longer matches the icons Telegram Web currently ships, so a narrower check left the button hidden.
+- Landing page preconnects to the jsDelivr CDN used by flag-icons.
+- Removed the dead `background/` service worker and unused `content.css`; the old no-op popup was rebuilt as the working toolbar popup above.
+- Permissions trimmed to `activeTab` (tab status in the popup) and `storage` (on/off toggle) — no `host_permissions`.
+- Removed the orphaned popup message listener from the content script.
+
 ## [1.0.2] - 2026-08-08
 
 ### Added

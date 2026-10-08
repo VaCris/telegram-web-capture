@@ -1,12 +1,21 @@
 {
   "manifest_version": 3,
-  "name": "Telegram Media Downloader",
-  "version": "1.0.2",
-  "description": "Unhide download button in Telegram Web media viewer",
+  "default_locale": "en",
+  "name": "__MSG_extName__",
+  "version": "1.3.0",
+  "description": "__MSG_extDescription__",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "__MSG_extName__"
   },
   "content_scripts": [
     {
@@ -15,17 +24,10 @@
         "https://webk.telegram.org/*",
         "https://webz.telegram.org/*"
       ],
-      "js": ["content/content.js"],
-      "css": ["content/content.css"],
+      "js": [
+        "content/content.js"
+      ],
       "run_at": "document_idle"
     }
-  ],
-  "permissions": [
-    "activeTab"
-  ],
-  "host_permissions": [
-    "https://web.telegram.org/*",
-    "https://webk.telegram.org/*",
-    "https://webz.telegram.org/*"
   ]
 }

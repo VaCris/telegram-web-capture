@@ -1,0 +1,13 @@
+{
+  "name": "telegram-web-capture",
+  "private": true,
+  "type": "module",
+  "description": "Dev tooling (tests) for the Telegram Media Downloader extension. No build step.",
+  "scripts": {
+    "test": "node --test tests/",
+    "package": "bash scripts/package.sh"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}

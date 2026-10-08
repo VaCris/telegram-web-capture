@@ -31,7 +31,7 @@
       "features.4.title": "Privacy First",
       "features.4.desc": "No media is intercepted, captured or stored locally. You download directly from Telegram's own CDN via their native button.",
       "features.5.title": "Lightweight",
-      "features.5.desc": "A minimal content script runs every 500 ms. No heavy frameworks, no background noise.",
+      "features.5.desc": "A minimal content script driven by a MutationObserver. No polling, no heavy frameworks, no background noise.",
       "features.6.title": "Zero Setup",
       "features.6.desc": "Install and it just works. No options, no configuration, no permissions beyond web.telegram.org.",
       "demo.title": "See it in action",
@@ -86,7 +86,7 @@
       "features.4.title": "Privacidad primero",
       "features.4.desc": "Ningún medio es interceptado, capturado o almacenado localmente. Descargas directamente del CDN de Telegram usando su propio botón.",
       "features.5.title": "Ligero",
-      "features.5.desc": "Un content script minimal corre cada 500 ms. Sin frameworks pesados, sin ruido de fondo.",
+      "features.5.desc": "Un content script minimal basado en MutationObserver. Sin sondeos, sin frameworks pesados, sin ruido de fondo.",
       "features.6.title": "Sin configuración",
       "features.6.desc": "Instálala y funciona. Sin opciones, sin configuración, sin permisos más allá de web.telegram.org.",
       "demo.title": "Ver en acción",
@@ -116,7 +116,9 @@
     }
   };
 
-  var currentLang = localStorage.getItem('tgLang') || 'en';
+  var storedLang = localStorage.getItem('tgLang');
+  var browserLang = (navigator.language || 'en').toLowerCase().startsWith('es') ? 'es' : 'en';
+  var currentLang = storedLang || browserLang;
   var translatable = document.querySelectorAll('[data-key]');
 
   function setLanguage(lang) {

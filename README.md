@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/badge/Manifest%20V3-Chrome%20Extension-orange" alt="Manifest">
   </a>
   <a href="https://github.com/VaCris/telegram-web-capture/releases">
-    <img src="https://img.shields.io/badge/version-1.0.2-blue" alt="Version">
+    <img src="https://img.shields.io/badge/version-1.3.0-blue" alt="Version">
   </a>
   <a href="https://github.com/VaCris/telegram-web-capture/stargazers">
     <img src="https://img.shields.io/github/stars/VaCris/telegram-web-capture?style=social" alt="GitHub Stars">
@@ -31,7 +31,8 @@ It does not capture, proxy, or store media. Instead, it removes Telegram Web's h
 - Does not intercept media requests or store downloaded content.
 - No configuration required.
 - Built with Chrome Extension Manifest V3.
-- Lightweight content script with a small DOM scan every 500 ms.
+- Lightweight content script driven by a `MutationObserver`, with no polling and no idle cost.
+- Toolbar popup with an on/off toggle, connection status, and an Open Telegram shortcut.
 
 ## Installation
 
@@ -64,6 +65,8 @@ Chromium-based browsers such as Microsoft Edge and Brave can generally load the 
 4. The extension checks the active Telegram viewer and reveals hidden native controls.
 5. Click Telegram's download button to save the file using Telegram's normal download flow.
 
+Click the toolbar icon to open the popup: it shows whether the current tab is Telegram Web, lets you turn the extension on or off, and offers an Open Telegram shortcut.
+
 ### Screenshots
 
 ![Open media in Telegram Web](docs/screenshots/screenshot-step-1-view.png)
@@ -76,12 +79,12 @@ Chromium-based browsers such as Microsoft Edge and Brave can generally load the 
 
 Telegram Web may keep native viewer controls hidden with the `hide` class.
 
-The extension injects `content/content.js`, which periodically checks:
+The extension injects `content/content.js`, which watches the page with a `MutationObserver` and checks:
 
 - `.media-viewer-whole` and its `.media-viewer-buttons`
 - `#stories-viewer`
 
-When it finds hidden viewer buttons, it removes the `hide` class. If the button matches Telegram's download icon, it also marks it with `tgico-download`.
+When it finds hidden viewer buttons, it removes the `hide` class so Telegram's own controls (download, quality menu, copy, and the rest) become reachable. Download-related buttons are also marked with `tgico-download`.
 
 This means the extension does **not** need to reverse-engineer Telegram's private APIs or implement its own media downloader.
 
@@ -90,14 +93,23 @@ This means the extension does **not** need to reverse-engineer Telegram's privat
 ```text
 telegram-web-capture/
 ├── manifest.json
-├── background/
+├── _locales/
+│   ├── en/
+│   └── es/
 ├── content/
-│   ├── content.js
-│   └── content.css
+│   └── content.js
 ├── popup/
+│   ├── popup.html
+│   ├── popup.css
+│   └── popup.js
 ├── icons/
 ├── docs/
 │   └── screenshots/
+├── tests/
+│   └── content.test.js
+├── scripts/
+│   └── package.sh
+├── package.json
 ├── README.md
 ├── README_ES.md
 ├── TESTING.md
@@ -118,7 +130,20 @@ There is no build step required for the current extension.
 4. Reload the extension from `chrome://extensions/`.
 5. Refresh Telegram Web and verify the affected flow.
 
-For manual verification guidance, see [TESTING.md](TESTING.md).
+Run the automated content-script tests with:
+
+```bash
+npm install
+npm test
+```
+
+Build a clean release zip (runtime files only — excludes `node_modules`, tests, docs, and git metadata):
+
+```bash
+npm run package
+```
+
+The archive lands in `dist/`. For manual verification guidance, see [TESTING.md](TESTING.md).
 
 ## Compatibility
 
